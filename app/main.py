@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from app.database.mongodb import check_mongodb_connection
 from app.routers.chat import router as chat_router
+from app.routers.analytics import router as analytics_router
 
 
 app = FastAPI(
@@ -11,7 +12,7 @@ app = FastAPI(
 )
 
 app.include_router(chat_router)
-
+app.include_router(analytics_router)
 
 @app.get("/")
 def root():
